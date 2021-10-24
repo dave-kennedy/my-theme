@@ -1,4 +1,39 @@
 body {
     color: #3f3f3f;
+    font-family: sans-serif;
+}
+
+a {
+    color: #3f3f3f;
+    text-decoration: dotted underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: serif;
+}
+
+.posts .post h3 {
+    margin-bottom: 0;
+}
+
+.posts .post .date {
+    color: #6f6f6f;
+    margin: 0;
+}
+
+.posts .post .description {
+    margin: 0;
+}
+
+#footer {
+    bottom: 0;
+    position: absolute;
+}
+
+@media screen and (min-width: 800px) {
+    body {
+        margin: auto;
+        width: 800px;
+    }
 }
 
