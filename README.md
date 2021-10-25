@@ -7,7 +7,7 @@ These instructions pertain only to the
 
 1. Run this command inside this directory:
 
-    $ sudo -u www-data make install
+        $ sudo -u www-data make install
 
 2. In Nextcloud settings, go to Administration > Pico CMS and scroll down to the section labeled
    "Custom themes". Select "my-theme" from the dropdown menu and press the plus sign.
@@ -18,13 +18,13 @@ These instructions pertain only to the
 4. Optional: if you want to add a list of blog posts to your page, add the "blog-index" template to
    your page's metadata, e.g.:
 
-    ---
-    Title: Welcome
-    Description: Stuff and nonsense.
-    Author: Joe Bloggs
-    Date: 2021-10-24
-    Template: blog-index
-    ---
+        ---
+        Title: Welcome
+        Description: Stuff and nonsense.
+        Author: Joe Bloggs
+        Date: 2021-10-24
+        Template: blog-index
+        ---
 
    Then, just drop some files in a subdirectory named "posts".
 
@@ -32,7 +32,7 @@ These instructions pertain only to the
 
 1. Run this command inside this directory:
 
-    $ sudo -u www-data make install
+        $ sudo -u www-data make install
 
 2. In Nextcloud settings, go to Administration > Pico CMS and scroll down to the section labeled
    "Custom themes". Press the "Reload custom theme" button next to "my-theme".
@@ -41,7 +41,7 @@ These instructions pertain only to the
 
 1. Run this command inside this directory:
 
-    $ sudo -u www-data make uninstall
+        $ sudo -u www-data make uninstall
 
 2. In Nextcloud settings, go to Administration > Pico CMS and scroll down to the section labeled
    "Custom themes". Press the "Delete custom theme" button next to "my-theme".
