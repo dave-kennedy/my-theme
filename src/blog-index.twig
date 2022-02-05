@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -18,36 +18,40 @@
             <link rel="canonical" href="{{ current_page.url }}" />
         {% endif %}
 
+        <link rel="stylesheet" href="{{ theme_url }}/css/normalize.css" type="text/css" />
+        <link rel="stylesheet" href="{{ theme_url }}/css/skeletor.css" type="text/css" />
         <link rel="stylesheet" href="{{ theme_url }}/css/style.css" type="text/css" />
     </head>
     <body>
-        <div id="header">
-            <h1>
-                <a href="{{ "index"|link }}">{{ site_title }}</a>
-            </h1>
-        </div>
+        <div class="container">
+            <div>
+                <h1>
+                    <a href="{{ "index"|link }}">{{ site_title }}</a>
+                </h1>
+            </div>
 
-        <div id="main">
-            <h2>{{ meta.title }}</h2>
-            {{ content }}
-        </div>
+            <div>
+                <h2>{{ meta.title }}</h2>
+                {{ content }}
+            </div>
 
-        <div class="posts">
-            {% for page in pages("posts")|sort_by("time")|reverse if not page.hidden %}
-                <div class="post">
-                    <h3>
-                        <a href="{{ page.url }}">{{ page.title }}</a>
-                    </h3>
-                    <p class="date">{{ page.date_formatted }}</p>
-                    <p class="description">{{ page.description }}</p>
-                </div>
-            {% endfor %}
-        </div>
+            <div class="posts">
+                {% for page in pages("posts")|sort_by("time")|reverse if not page.hidden %}
+                    <div class="post">
+                        <h3>
+                            <a href="{{ page.url }}">{{ page.title }}</a>
+                        </h3>
+                        <p class="date">{{ page.date_formatted }}</p>
+                        <p class="description">{{ page.description }}</p>
+                    </div>
+                {% endfor %}
+            </div>
 
-        <div id="footer">
-            <p>
-                Made with <a href="http://picocms.org/">Pico</a>
-            </p>
+            <div>
+                <p>
+                    Made with <a href="http://picocms.org/">Pico</a>
+                </p>
+            </div>
         </div>
     </body>
 </html>
