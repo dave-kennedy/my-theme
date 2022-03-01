@@ -19,7 +19,6 @@
         {% endif %}
 
         <link rel="stylesheet" href="{{ theme_url }}/css/normalize.css" type="text/css" />
-        <link rel="stylesheet" href="{{ theme_url }}/css/skeletor.css" type="text/css" />
         <link rel="stylesheet" href="{{ theme_url }}/css/style.css" type="text/css" />
     </head>
     <body>
@@ -31,9 +30,9 @@
             </div>
 
             <div>
-                <h2>{{ meta.title }}</h2>
-                <p class="date">{{ meta.date_formatted }}</p>
-                <p class="description">{{ meta.description }}</p>
+                <h2 class="mb-0">{{ meta.title }}</h2>
+                <p class="m-0 text-muted">{{ meta.author }} | {{ meta.date_formatted }}</p>
+                <p class="mt-0">{{ meta.description }}</p>
                 {{ content }}
             </div>
 

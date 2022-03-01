@@ -19,7 +19,6 @@
         {% endif %}
 
         <link rel="stylesheet" href="{{ theme_url }}/css/normalize.css" type="text/css" />
-        <link rel="stylesheet" href="{{ theme_url }}/css/skeletor.css" type="text/css" />
         <link rel="stylesheet" href="{{ theme_url }}/css/style.css" type="text/css" />
     </head>
     <body>
@@ -35,14 +34,14 @@
                 {{ content }}
             </div>
 
-            <div class="posts">
+            <div>
                 {% for page in pages("posts")|sort_by("time")|reverse if not page.hidden %}
-                    <div class="post">
-                        <h3>
+                    <div>
+                        <h3 class="mb-0">
                             <a href="{{ page.url }}">{{ page.title }}</a>
                         </h3>
-                        <p class="date">{{ page.date_formatted }}</p>
-                        <p class="description">{{ page.description }}</p>
+                        <p class="m-0 text-muted">{{ page.author }} | {{ page.date_formatted }}</p>
+                        <p class="mt-0">{{ page.description }}</p>
                     </div>
                 {% endfor %}
             </div>
