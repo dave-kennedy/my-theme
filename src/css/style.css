@@ -1,10 +1,21 @@
+/* General */
+
 body {
-    background-color: #222;
-    color: #DDD;
+    background-color: #FED;
+    color: #543;
     font-family: HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1.25rem;
     line-height: 2;
 }
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #543;
+        color: #FED;
+    }
+}
+
+/* Links */
 
 a {
     color: #1AD;
@@ -13,6 +24,8 @@ a {
 a:hover {
     color: #2BE;
 }
+
+/* Container */
 
 .container {
     margin: 0 auto;
@@ -40,6 +53,8 @@ a:hover {
 .container img {
     max-width: 100%;
 }
+
+/* Utils */
 
 .m-0 {
     margin: 0;
