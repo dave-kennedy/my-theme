@@ -1,4 +1,4 @@
-# My theme for Pico CMS
+# Sepia Theme for Pico CMS
 
 These instructions pertain only to the
 [Nextcloud integration](https://github.com/nextcloud/cms_pico).
@@ -10,10 +10,10 @@ These instructions pertain only to the
         $ sudo -u www-data make install
 
 2. In Nextcloud settings, go to Administration > Pico CMS and scroll down to the section labeled
-   "Custom themes". Select "my-theme" from the dropdown menu and press the plus sign.
+   "Custom themes". Select "sepia" from the dropdown menu and press the plus sign.
 
-3. Still in Nextcloud settings, Go to Personal > Pico CMS and select "my-theme" from the dropdown
-   menu next to the name of your site.
+3. Still in Nextcloud settings, Go to Personal > Pico CMS and select "sepia" from the dropdown menu
+   next to the name of your site.
 
 4. Optional: if you want to add a list of blog posts to your page, add the "blog-index" template to
    your page's metadata, e.g.:
@@ -35,7 +35,7 @@ These instructions pertain only to the
         $ sudo -u www-data make install
 
 2. In Nextcloud settings, go to Administration > Pico CMS and scroll down to the section labeled
-   "Custom themes". Press the "Reload custom theme" button next to "my-theme".
+   "Custom themes". Press the "Reload custom theme" button next to "sepia".
 
 ## Uninstall
 
@@ -44,7 +44,7 @@ These instructions pertain only to the
         $ sudo -u www-data make uninstall
 
 2. In Nextcloud settings, go to Administration > Pico CMS and scroll down to the section labeled
-   "Custom themes". Press the "Delete custom theme" button next to "my-theme".
+   "Custom themes". Press the "Delete custom theme" button next to "sepia".
 
 3. Still in Nextcloud settings, Go to Personal > Pico CMS and select another theme from the dropdown
    menu next to the name of your site.
