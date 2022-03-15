@@ -21,11 +21,22 @@
         <link rel="stylesheet" href="{{ theme_url }}/css/normalize.css" type="text/css" />
         <link rel="stylesheet" href="{{ theme_url }}/css/style.css" type="text/css" />
     </head>
+
     <body>
         <div class="container">
             <div>
                 <h1>
-                    <a href="{{ "index"|link }}">{{ site_title }}</a>
+                    <a href="{{ 'index' | link }}">{{ site_title }}</a>
                 </h1>
             </div>
+
+            {% set nav_links = pages['_navigation'].meta.links %}
+
+            {% if nav_links %}
+                <nav>
+                    {% for page_title, page_id in pages['_navigation'].meta.links %}
+                        <a class="mr-1" href="{{ base_url }}/{{ page_id }}">{{ page_title }}</a>
+                    {% endfor %}
+                </nav>
+            {% endif %}
 

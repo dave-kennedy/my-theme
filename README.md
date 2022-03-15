@@ -48,6 +48,19 @@ Next, create a subdirectory in your content folder named `blog` and add some pag
     Template: blog-post
     ---
 
+## Navigation
+
+To display a navigation menu beneath the header, create a file named `_navigation.md` in your
+content folder. This file should contain a single meta attribute named `links` (lowercase), the
+value of which should be a mapping of page titles to IDs, e.g.:
+
+    ---
+    links:
+        Blog: blog
+        About: about
+        Contact: contact
+    ---
+
 ## Nextcloud
 
 These instructions pertain only to the Nextcloud integration.
