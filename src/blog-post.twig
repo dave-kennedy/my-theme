@@ -9,5 +9,19 @@
     {{ content }}
 </div>
 
+<div class="flex-between">
+    <div>
+        {% if previous_page.id starts with 'blog/' and not (previous_page.id ends with '/index') %}
+            <a href="{{ previous_page.url }}">&lt; {{ previous_page.title }}</a>
+        {% endif %}
+    </div>
+
+    <div>
+        {% if next_page.id starts with 'blog/' and not (next_page.id ends with '/index') %}
+            <a href="{{ next_page.url }}">{{ next_page.title }} &gt;</a>
+        {% endif %}
+    </div>
+</div>
+
 {% include '_footer.twig' %}
 
