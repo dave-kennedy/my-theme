@@ -1,15 +1,18 @@
 {% include '_header.twig' %}
 
-<div>
+<article>
     <h2 class="margin-bottom-0">{{ meta.title }}</h2>
-    <p class="margin-0 text-muted">
+
+    <p class="margin-0 opacity-50">
         {{ [meta.author, meta.date_formatted] | filter(v) | join(' | ') }}
     </p>
-    <p class="margin-top-0">{{ meta.description }}</p>
-    {{ content }}
-</div>
 
-<div class="flex-between">
+    <p class="margin-top-0">{{ meta.description }}</p>
+
+    {{ content }}
+</article>
+
+<nav class="flex-between">
     <div>
         {% if previous_page.id starts with 'blog/' and not (previous_page.id ends with '/index') %}
             <a href="{{ previous_page.url }}">&lt; {{ previous_page.title }}</a>
@@ -21,7 +24,7 @@
             <a href="{{ next_page.url }}">{{ next_page.title }} &gt;</a>
         {% endif %}
     </div>
-</div>
+</nav>
 
 {% include '_footer.twig' %}
 

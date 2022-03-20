@@ -8,19 +8,19 @@
     {{ content }}
 {% endif %}
 
-<div>
-    {% for page in pages('blog') | sort_by('time') | reverse if not page.hidden %}
-        <div>
-            <h3 class="margin-bottom-0">
-                <a href="{{ page.url }}">{{ page.title }}</a>
-            </h3>
-            <p class="margin-0 text-muted">
-                {{ [page.author, page.date_formatted] | filter(v) | join(' | ') }}
-            </p>
-            <p class="margin-top-0">{{ page.description }}</p>
-        </div>
-    {% endfor %}
-</div>
+{% for page in pages('blog') | sort_by('time') | reverse if not page.hidden %}
+    <article>
+        <h3 class="margin-bottom-0">
+            <a href="{{ page.url }}">{{ page.title }}</a>
+        </h3>
+
+        <p class="margin-0 opacity-50">
+            {{ [page.author, page.date_formatted] | filter(v) | join(' | ') }}
+        </p>
+
+        <p class="margin-top-0">{{ page.description }}</p>
+    </article>
+{% endfor %}
 
 {% include '_footer.twig' %}
 

@@ -77,11 +77,11 @@ a:hover {
     margin-top: 0;
 }
 
-.text-center {
-    text-align: center;
+.opacity-50 {
+    opacity: 0.5
 }
 
-.text-muted {
-    opacity: 0.5
+.text-center {
+    text-align: center;
 }
 
