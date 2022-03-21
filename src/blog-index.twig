@@ -1,9 +1,12 @@
 {% include '_header.twig' %}
 
-<div>
+{% if meta.title %}
     <h2>{{ meta.title }}</h2>
+{% endif %}
+
+{% if content %}
     {{ content }}
-</div>
+{% endif %}
 
 <div>
     {% for page in pages('blog') | sort_by('time') | reverse if not page.hidden %}
