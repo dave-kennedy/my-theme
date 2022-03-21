@@ -27,18 +27,26 @@ Replace DIR with the location of your themes directory.
 
 ## Blog support
 
-If you want to add a list of blog posts to your page, add the "blog-index" template to your page's
-metadata, e.g.:
+If you want to add a list of blog posts to your page, use the `blog-index` template, e.g.:
 
     ---
     Title: Welcome
-    Description: Stuff and nonsense.
+    Description: A list of blog posts by me.
     Author: Joe Bloggs
     Date: 2021-10-24
     Template: blog-index
     ---
 
-Then just drop some files in a subdirectory named "posts".
+Next, create a subdirectory in your content folder named `blog` and add some pages using the
+`blog-post` template, e.g.:
+
+    ---
+    Title: My First Post
+    Description: This is my first blog post ever. Be nice.
+    Author: Joe Bloggs
+    Date: 2021-10-25
+    Template: blog-post
+    ---
 
 ## Nextcloud
 

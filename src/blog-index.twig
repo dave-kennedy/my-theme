@@ -6,7 +6,7 @@
 </div>
 
 <div>
-    {% for page in pages("posts")|sort_by("time")|reverse if not page.hidden %}
+    {% for page in pages('blog') | sort_by('time') | reverse if not page.hidden %}
         <div>
             <h3 class="mb-0">
                 <a href="{{ page.url }}">{{ page.title }}</a>
