@@ -1,11 +1,11 @@
 {% include '_header.twig' %}
 
 <div>
-    <h2 class="mb-0">{{ meta.title }}</h2>
-    <p class="m-0 text-muted">
+    <h2 class="margin-bottom-0">{{ meta.title }}</h2>
+    <p class="margin-0 text-muted">
         {{ [meta.author, meta.date_formatted] | filter(v) | join(' | ') }}
     </p>
-    <p class="mt-0">{{ meta.description }}</p>
+    <p class="margin-top-0">{{ meta.description }}</p>
     {{ content }}
 </div>
 

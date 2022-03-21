@@ -8,13 +8,13 @@
 <div>
     {% for page in pages('blog') | sort_by('time') | reverse if not page.hidden %}
         <div>
-            <h3 class="mb-0">
+            <h3 class="margin-bottom-0">
                 <a href="{{ page.url }}">{{ page.title }}</a>
             </h3>
-            <p class="m-0 text-muted">
+            <p class="margin-0 text-muted">
                 {{ [page.author, page.date_formatted] | filter(v) | join(' | ') }}
             </p>
-            <p class="mt-0">{{ page.description }}</p>
+            <p class="margin-top-0">{{ page.description }}</p>
         </div>
     {% endfor %}
 </div>
