@@ -46,7 +46,13 @@ Next, create a subdirectory in your content folder named `blog` and add some pag
     Author: Joe Bloggs
     Date: 2021-10-25
     Template: blog-post
+    tags:
+        - Foo
+        - Bar
     ---
+
+Blog posts can have one or more tags via the `tags` (lowercase) meta attribute, the value of which
+should be a list of strings.
 
 ## Navigation
 

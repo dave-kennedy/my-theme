@@ -7,7 +7,16 @@
         {{ [meta.author, meta.date_formatted] | filter(v) | join(' | ') }}
     </p>
 
-    <p class="margin-top-0">{{ meta.description }}</p>
+    <p class="margin-0">{{ meta.description }}</p>
+
+    {% if meta.tags %}
+        <p class="margin-top-0">
+            Tags:
+            {% for tag in meta.tags %}
+                <a href="{{ 'blog' | link }}?tag={{ tag }}">{{ tag }}</a>
+            {% endfor %}
+        </p>
+    {% endif %}
 
     {{ content }}
 </article>

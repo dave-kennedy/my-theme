@@ -1,6 +1,10 @@
 {% include '_header.twig' %}
 
-{% if meta.title %}
+{% set filter_tag = url_param('tag', 'string') | trim %}
+
+{% if filter_tag %}
+    <h2>Posts tagged with {{ filter_tag }}</h2>
+{% elseif meta.title %}
     <h2>{{ meta.title }}</h2>
 {% endif %}
 
@@ -9,17 +13,34 @@
 {% endif %}
 
 {% for page in pages('blog') | sort_by('time') | reverse if not page.hidden %}
-    <article>
-        <h3 class="margin-bottom-0">
-            <a href="{{ page.url }}">{{ page.title }}</a>
-        </h3>
+    {% if page.meta.tags %}
+        {% set has_filter_tag = page.meta.tags | filter(t => t | lower == filter_tag | lower) is not empty %}
+    {% else %}
+        {% set has_filter_tag = false %}
+    {% endif %}
 
-        <p class="margin-0 opacity-50">
-            {{ [page.author, page.date_formatted] | filter(v) | join(' | ') }}
-        </p>
+    {% if not filter_tag or has_filter_tag %}
+        <article>
+            <h3 class="margin-bottom-0">
+                <a href="{{ page.url }}">{{ page.title }}</a>
+            </h3>
 
-        <p class="margin-top-0">{{ page.description }}</p>
-    </article>
+            <p class="margin-0 opacity-50">
+                {{ [page.author, page.date_formatted] | filter(v) | join(' | ') }}
+            </p>
+
+            <p class="margin-0">{{ page.description }}</p>
+
+            {% if page.meta.tags %}
+                <p class="margin-top-0">
+                    Tags:
+                    {% for tag in page.meta.tags %}
+                        <a href="{{ 'blog' | link }}?tag={{ tag }}">{{ tag }}</a>
+                    {% endfor %}
+                </p>
+            {% endif %}
+        </article>
+    {% endif %}
 {% endfor %}
 
 {% include '_footer.twig' %}
