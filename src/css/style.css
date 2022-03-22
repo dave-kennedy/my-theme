@@ -18,11 +18,21 @@ body {
 /* Links */
 
 a {
-    color: #1AD;
+    color: #B83;
 }
 
 a:hover {
-    color: #2BE;
+    color: #DA4;
+}
+
+@media (prefers-color-scheme: dark) {
+    a {
+        color: #DA4;
+    }
+
+    a:hover {
+        color: #B83;
+    }
 }
 
 /* Container */
