@@ -12,36 +12,73 @@
     {{ content }}
 {% endif %}
 
-{% for page in pages('blog') | sort_by('time') | reverse if not page.hidden %}
-    {% if page.meta.tags %}
-        {% set has_filter_tag = page.meta.tags | filter(t => t | lower == filter_tag | lower) is not empty %}
-    {% else %}
-        {% set has_filter_tag = false %}
-    {% endif %}
+{% set posts = pages('blog') | filter(p => not p.hidden) %}
 
-    {% if not filter_tag or has_filter_tag %}
-        <article>
-            <h3 class="margin-bottom-0">
-                <a href="{{ page.url }}">{{ page.title }}</a>
-            </h3>
+{% if filter_tag %}
+    {% set posts = posts | filter(p => filter_tag in p.meta.tags) %}
+{% endif %}
 
-            <p class="margin-0 opacity-50">
-                {{ [page.author, page.date_formatted] | filter(v) | join(' | ') }}
+{% set page_num = url_param('page', 'int', 1) %}
+{% set page_size = 10 %}
+{% set first_post = (page_num - 1) * page_size %}
+
+{% for post in posts | sort_by('time') | reverse | slice(first_post, page_size) %}
+    <article>
+        <h3 class="margin-bottom-0">
+            <a href="{{ post.url }}">{{ post.title }}</a>
+        </h3>
+
+        <p class="margin-0 opacity-50">
+            {{ [post.author, post.date_formatted] | filter(v) | join(' | ') }}
+        </p>
+
+        <p class="margin-0">{{ post.description }}</p>
+
+        {% if post.meta.tags %}
+            <p class="margin-top-0">
+                Tags:
+                {% for tag in post.meta.tags %}
+                    <a href="{{ 'blog' | link }}?tag={{ tag }}">{{ tag }}</a>
+                {% endfor %}
             </p>
-
-            <p class="margin-0">{{ page.description }}</p>
-
-            {% if page.meta.tags %}
-                <p class="margin-top-0">
-                    Tags:
-                    {% for tag in page.meta.tags %}
-                        <a href="{{ 'blog' | link }}?tag={{ tag }}">{{ tag }}</a>
-                    {% endfor %}
-                </p>
-            {% endif %}
-        </article>
-    {% endif %}
+        {% endif %}
+    </article>
 {% endfor %}
+
+{% if page_num > 1 %}
+    {% set prev_url = 'blog' | link ~ '?page=' ~ (page_num - 1) %}
+
+    {% if filter_tag %}
+        {% set prev_url = prev_url ~ '&tag=' ~ filter_tag %}
+    {% endif %}
+{% endif %}
+
+{% set total_posts = posts | length %}
+{% set total_pages = (total_posts / page_size) | round(0, 'ceil') %}
+
+{% if page_num < total_pages %}
+    {% set next_url = 'blog' | link ~ '?page=' ~ (page_num + 1) %}
+
+    {% if filter_tag %}
+        {% set next_url = next_url ~ '&tag=' ~ filter_tag %}
+    {% endif %}
+{% endif %}
+
+<nav class="flex-between">
+    <p>
+        {% if prev_url %}
+            <a href="{{ prev_url }}">&lt; Page {{ page_num - 1 }}</a>
+        {% endif %}
+    </p>
+
+    <p>Page {{ page_num }} of {{ total_pages }}</p>
+
+    <p>
+        {% if next_url %}
+            <a href="{{ next_url }}">Page {{ page_num + 1 }} &gt;</a>
+        {% endif %}
+    </p>
+</nav>
 
 {% include '_footer.twig' %}
 
