@@ -46,22 +46,22 @@ Next, create a subdirectory in your content folder named `blog` and add some pag
     Author: Joe Bloggs
     Date: 2021-10-25
     Template: blog-post
-    tags:
+    Tags:
         - Foo
         - Bar
     ---
 
-Blog posts can have one or more tags via the `tags` (lowercase) meta attribute, the value of which
-should be a list of strings.
+Blog posts can have one or more tags via the tags meta attribute, the value of which should be a
+list of strings.
 
 ## Navigation
 
 To display a navigation menu beneath the header, create a file named `_navigation.md` in your
-content folder. This file should contain a single meta attribute named `links` (lowercase), the
-value of which should be a mapping of page titles to IDs, e.g.:
+content folder. This file should contain a single meta attribute named links, the value of which
+should be a mapping of page titles to IDs, e.g.:
 
     ---
-    links:
+    Links:
         Blog: blog
         About: about
         Contact: contact
