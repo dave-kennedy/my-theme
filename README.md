@@ -37,8 +37,7 @@ If you want to add a list of blog posts to your page, use the `blog-index` templ
     Template: blog-index
     ---
 
-Next, create a subdirectory in your content folder named `blog` and add some pages using the
-`blog-post` template, e.g.:
+Blog posts get their own template, and can have one or more `Tags`:
 
     ---
     Title: My First Post
@@ -51,14 +50,16 @@ Next, create a subdirectory in your content folder named `blog` and add some pag
         - Bar
     ---
 
-Blog posts can have one or more tags via the tags meta attribute, the value of which should be a
-list of strings.
+Finally, make sure the following values in `pico-theme.yml` are correct:
+
+    blog_index_id: blog/index
+    blog_posts_dir: blog/posts
 
 ## Navigation
 
 To display a navigation menu beneath the header, create a file named `_navigation.md` in your
-content folder. This file should contain a single meta attribute named links, the value of which
-should be a mapping of page titles to IDs, e.g.:
+content folder. This file should contain a `Links` meta attribute, the value of which should be a
+mapping of page titles to IDs, e.g.:
 
     ---
     Links:

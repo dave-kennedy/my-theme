@@ -13,7 +13,7 @@
         <p class="margin-top-0">
             Tags:
             {% for tag in meta.tags %}
-                <a href="{{ 'blog' | link }}?tag={{ tag }}">{{ tag }}</a>
+                <a href="{{ config.theme_config.blog_index_id | link }}?tag={{ tag }}">{{ tag }}</a>
             {% endfor %}
         </p>
     {% endif %}
@@ -23,13 +23,19 @@
 
 <nav class="flex-between">
     <p>
-        {% if previous_page.id starts with 'blog/' and not (previous_page.id ends with '/index') %}
+        {%
+            if previous_page.id starts with config.theme_config.blog_posts_dir ~ '/'
+            and previous_page.id != config.theme_config.blog_index_id
+        %}
             <a href="{{ previous_page.url }}">&lt; {{ previous_page.title }}</a>
         {% endif %}
     </p>
 
     <p>
-        {% if next_page.id starts with 'blog/' and not (next_page.id ends with '/index') %}
+        {%
+            if next_page.id starts with config.theme_config.blog_posts_dir ~ '/'
+            and next_page.id != config.theme_config.blog_index_id
+        %}
             <a href="{{ next_page.url }}">{{ next_page.title }} &gt;</a>
         {% endif %}
     </p>

@@ -12,7 +12,7 @@
     {{ content }}
 {% endif %}
 
-{% set posts = pages('blog') | filter(p => not p.hidden) %}
+{% set posts = pages(config.theme_config.blog_posts_dir) | filter(p => not p.hidden) %}
 
 {% if filter_tag %}
     {% set posts = posts | filter(p => filter_tag in p.meta.tags) %}
@@ -22,7 +22,7 @@
 {% set page_size = 10 %}
 {% set first_post = (page_num - 1) * page_size %}
 
-{% for post in posts | sort_by('time') | reverse | slice(first_post, page_size) %}
+{% for post in posts | reverse | slice(first_post, page_size) %}
     <article>
         <h3 class="margin-bottom-0">
             <a href="{{ post.url }}">{{ post.title }}</a>
@@ -38,7 +38,7 @@
             <p class="margin-top-0">
                 Tags:
                 {% for tag in post.meta.tags %}
-                    <a href="{{ 'blog' | link }}?tag={{ tag }}">{{ tag }}</a>
+                    <a href="{{ config.theme_config.blog_index_id | link }}?tag={{ tag }}">{{ tag }}</a>
                 {% endfor %}
             </p>
         {% endif %}
@@ -46,7 +46,7 @@
 {% endfor %}
 
 {% if page_num > 1 %}
-    {% set prev_url = 'blog' | link ~ '?page=' ~ (page_num - 1) %}
+    {% set prev_url = config.theme_config.blog_index_id | link ~ '?page=' ~ (page_num - 1) %}
 
     {% if filter_tag %}
         {% set prev_url = prev_url ~ '&tag=' ~ filter_tag %}
@@ -57,7 +57,7 @@
 {% set total_pages = (total_posts / page_size) | round(0, 'ceil') %}
 
 {% if page_num < total_pages %}
-    {% set next_url = 'blog' | link ~ '?page=' ~ (page_num + 1) %}
+    {% set next_url = config.theme_config.blog_index_id | link ~ '?page=' ~ (page_num + 1) %}
 
     {% if filter_tag %}
         {% set next_url = next_url ~ '&tag=' ~ filter_tag %}

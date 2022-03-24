@@ -1,5 +1,8 @@
 api_version: 3                  # Use Pico's latest API version for themes
 
+blog_index_id: blog/index
+blog_posts_dir: blog/posts
+
 meta:
     Links: links
     Tags: tags
