@@ -29,7 +29,7 @@
         </h3>
 
         <p class="margin-0 opacity-50">
-            {{ [post.author, post.date_formatted] | filter(v) | join(' | ') }}
+            {{ [post.author, post.date_formatted] | filter(v => v is not empty) | join(' | ') }}
         </p>
 
         <p class="margin-0">{{ post.description }}</p>

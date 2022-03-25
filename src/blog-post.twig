@@ -4,7 +4,7 @@
     <h2 class="margin-bottom-0">{{ meta.title }}</h2>
 
     <p class="margin-0 opacity-50">
-        {{ [meta.author, meta.date_formatted] | filter(v) | join(' | ') }}
+        {{ [meta.author, meta.date_formatted] | filter(v => v is not empty) | join(' | ') }}
     </p>
 
     <p class="margin-0">{{ meta.description }}</p>
