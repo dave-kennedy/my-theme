@@ -9,21 +9,27 @@
 
 ## Install
 
-Just run this command inside this directory:
+Run this command inside this directory:
 
     $ setup.sh install DIR
 
 Replace DIR with the location of your themes directory.
 
-The same command can be used to update the theme.
+Finally, change the theme in your `config.yml` to `sepia`.
+
+## Update
+
+The same command used to install the theme can be used to update it.
 
 ## Uninstall
 
-Just run this command inside this directory:
+Run this command inside this directory:
 
     $ setup.sh uninstall DIR
 
 Replace DIR with the location of your themes directory.
+
+Don't forget to change the theme in your `config.yml`.
 
 ## Blog support
 
@@ -72,6 +78,9 @@ mapping of page titles to IDs, e.g.:
 
 These instructions pertain only to the Nextcloud integration.
 
+> In each of the following commands, replace DIR with the location of your themes directory, e.g.
+> `/var/nextcloud/data/appdata_asdf1234/cms_pico/themes`.
+
 ### Install
 
 1. Run this command inside this directory:
@@ -81,7 +90,7 @@ These instructions pertain only to the Nextcloud integration.
 2. In Nextcloud settings, go to Administration > Pico CMS and scroll down to the section labeled
    "Custom themes". Select "sepia" from the dropdown menu and press the plus sign.
 
-3. Still in Nextcloud settings, Go to Personal > Pico CMS and select "sepia" from the dropdown menu
+3. Still in Nextcloud settings, go to Personal > Pico CMS and select "sepia" from the dropdown menu
    next to the name of your site.
 
 ### Update
@@ -102,6 +111,6 @@ These instructions pertain only to the Nextcloud integration.
 2. In Nextcloud settings, go to Administration > Pico CMS and scroll down to the section labeled
    "Custom themes". Press the "Delete custom theme" button next to "sepia".
 
-3. Still in Nextcloud settings, Go to Personal > Pico CMS and select another theme from the dropdown
+3. Still in Nextcloud settings, go to Personal > Pico CMS and select another theme from the dropdown
    menu next to the name of your site.
 
