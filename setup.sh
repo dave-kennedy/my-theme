@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+this_dir=$(dirname "$0")
 this_file=$(basename "$0")
 
 display_help() {
@@ -16,13 +17,13 @@ Example: install theme to typical htdocs location:
 
 install() {
     themes_dir=$1
-    mkdir -p "$themes_dir/sepia"
-    cp -r src/* "$themes_dir/sepia"
+    mkdir -p "$themes_dir"/sepia
+    cp -r "$this_dir"/src/* "$themes_dir"/sepia
 }
 
 uninstall() {
     themes_dir=$1
-    rm -r "$themes_dir/sepia"
+    rm -r "$themes_dir"/sepia
 }
 
 if [ $# -lt 2 ]; then
